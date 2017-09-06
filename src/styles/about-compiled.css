@@ -1,0 +1,18 @@
+.question {
+  margin: 56px 0; }
+
+.how-list {
+  list-style-type: decimal;
+  margin: 16px auto 0; }
+  .how-list li {
+    margin-bottom: 16px;
+    font-size: 20px;
+    line-height: 24px; }
+
+a {
+  text-decoration: none;
+  color: #428AFF; }
+
+@media (min-width: 320px) and (max-width: 768px) {
+  .about {
+    width: 85%; } }

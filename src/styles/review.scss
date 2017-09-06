@@ -1,0 +1,70 @@
+@import 'colors';
+
+.review-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 32px auto 120px;
+  max-width: 880px;
+  width: 100%;
+
+  @media only screen and (max-width: 960px) {
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+
+.photo {
+  border-radius: 12px;
+  height: 500px;
+  width: 500px;
+
+  @media only screen and (max-width: 960px) {
+    height: 320px;
+    margin: 0 0 24px;
+    width: 320px;
+  }
+}
+
+.review-form {
+  max-width: 320px;
+}
+
+.review-field {
+  display: flex;
+  flex-wrap: wrap;
+
+  label {
+    display: block;
+    order: 1;
+    width: 100%;
+  }
+
+  input {
+    -webkit-appearance: none;
+    border: 0;
+    border-bottom: 1px solid $grey;
+    border-radius: 0;
+    display: block;
+    font-size: 16px;
+    line-height: 32px;
+    margin: 0 0 24px;
+    order: 2;
+    transition: all .1s linear;
+    width: 100%;
+  }
+
+  input:focus {
+    border-bottom: 1px solid $accent;
+
+    + label {
+      color: $accent;
+    }
+  }
+}
+
+.review-buttons {
+  align-items: center;
+  display: flex;
+}
