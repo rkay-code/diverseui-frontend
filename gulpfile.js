@@ -1,6 +1,8 @@
 const gulp = require('gulp');
 const connect = require('gulp-connect');
+const concat = require('gulp-concat');
 const nunjucks = require('gulp-nunjucks');
+const jsFiles = ['zipjs', 'indexjs'];
 
 gulp.task('default', ['serve', 'watch']);
 
