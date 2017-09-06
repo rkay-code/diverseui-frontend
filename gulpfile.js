@@ -10,7 +10,11 @@ const jsFiles = [
   {name: 'indexjs', dependencies: ['index', 'banner']}
 ];
 
-gulp.task('build', ['templates', 'sass', ...jsFiles.map(({name}) => name)]);
+gulp.task('build', ['templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
+
+gulp.task('things-that-dont-need-to-be-watched', () => {
+  return gulp.src('src/img/**/*', {base: 'src'}).pipe(gulp.dest('dist'));
+});
 
 gulp.task('default', ['serve', 'build', 'watch']);
 
