@@ -1,5 +1,7 @@
 const gulp = require('gulp');
 const gutil = require('gulp-util');
+const rename = require('gulp-rename');
+const sass = require('gulp-sass');
 const connect = require('gulp-connect');
 const concat = require('gulp-concat');
 const nunjucks = require('gulp-nunjucks');
@@ -8,7 +10,7 @@ const jsFiles = [
   {name: 'indexjs', dependencies: ['index', 'banner']}
 ];
 
-gulp.task('build', ['templates', ...jsFiles.map(({name}) => name)]);
+gulp.task('build', ['templates', 'sass', ...jsFiles.map(({name}) => name)]);
 
 gulp.task('default', ['serve', 'build', 'watch']);
 
@@ -20,7 +22,7 @@ gulp.task('serve', () => {
   });
 });
 
-gulp.task('watch', ['templates:watch', ...jsFiles.map(({name}) => `${name}:watch`)]);
+gulp.task('watch', ['templates:watch', 'sass:watch', ...jsFiles.map(({name}) => `${name}:watch`)]);
 
 gulp.task('templates:watch', () => {
   return gulp.watch('src/*.html', ['templates'])
@@ -31,6 +33,21 @@ gulp.task('templates', () => {
     .pipe(nunjucks.compile())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());
+});
+
+gulp.task('sass', () => {
+  return gulp.src('src/styles/**/*.scss')
+    .pipe(sass.sync().on('error', sass.logError))
+    .pipe(rename((path) => {
+      path.basename += '-compiled';
+      path.extname = '.css';
+    }))
+    .pipe(gulp.dest('dist/styles'))
+    .pipe(connect.reload());
+});
+
+gulp.task('sass:watch', () => {
+  return gulp.watch('src/styles/**/*.scss', ['sass']);
 });
 
 jsFiles.forEach(({name, dependencies}) => {

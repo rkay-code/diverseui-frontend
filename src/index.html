@@ -2,11 +2,46 @@
 
 {% block css %}
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <link rel="stylesheet" href="styles/home-compiled.css">
 {% endblock %}
 
 {% block content %}
-<h1>hi</h1>
-<p>Hello</p>
+<div class="site-body">
+  <main class="faces">
+    <div id="images"></div>
+    <div id="load-more-container" class="load-more-container">
+      <button type="button" id="load-more" class="load text-button">View more beautiful people :)</button>
+    </div>
+  </main>
+  <nav class="filter-nav">
+    <div class="size section">
+      <div class="label">
+        <h3>Size</h3>
+      </div>
+      <div id="size-slider"></div>
+    </div>
+    <div class="gender section">
+      <div class="label">
+        <h3>Sex</h3>
+      </div>
+      <div class="sex-dropdown">
+        <select>
+            <option value="neutral" name="gender" id="gender-neutral">Neutral</option>
+            <option value="female" name="gender" id="gender-female">Female</option>
+            <option value="male" name="gender" id="gender-male">Male</option>
+        </select>
+      </div>
+    </div>
+    <div class="downloads section">
+      <div class="downloads label">
+        <h3>Download</h3>
+      </div>
+      <button id="download-all" type="button" class="button">All</button>
+      <button id="download-selected" type="button" class="button disabled">Selected</button>
+      <p id="download-selected-text">Click on an image to select it.</p>
+    </div>
+  </nav>
+</div>
 {% endblock %}
 
 {% block js %}

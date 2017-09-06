@@ -1,6 +1,6 @@
-$(document).ready(function() {
+$(document).ready(async function() {
   var PER_PAGE = 50;
-  var IMAGES = window.Data || [];
+  var IMAGES = await $.get('http://localhost:5000/images');
 
   var size = 78;
   var gender = 'neutral';
@@ -32,6 +32,8 @@ $(document).ready(function() {
     var filtered = filteredImages();
     var images = filtered.slice(from, to);
 
+    console.log(images);
+
     var imageNodes = _.map(images, function(i) {
       return ([
         '<img ',
@@ -61,6 +63,9 @@ $(document).ready(function() {
       $('#load-more-container').html('<button type="button" id="load-more" class="button">Load More</button>');
     }
   };
+
+  // start
+  showImages({});
 
   $('#load-more-container').on('click', '#load-more', function() {
     showImages({append: true});
