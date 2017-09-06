@@ -1,6 +1,6 @@
 $(document).ready(function() {
   var PER_PAGE = 50;
-  var IMAGES = $.get('http://localhost:5000/images');
+  var IMAGES = $.get('https://www.diverseui.com/images');
 
   var size = 78;
   var gender = 'neutral';
