@@ -1,22 +1,30 @@
 const gulp = require('gulp');
+const fs = require('fs');
+const request = require('request');
 const gutil = require('gulp-util');
 const rename = require('gulp-rename');
 const sass = require('gulp-sass');
 const connect = require('gulp-connect');
 const concat = require('gulp-concat');
 const nunjucks = require('gulp-nunjucks');
+const data = require('gulp-data');
 const jsFiles = [
   {name: 'zipjs', dependencies: ['jszip', 'jszip-utils', 'FileSaver']},
   {name: 'indexjs', dependencies: ['index', 'banner']}
 ];
 
-gulp.task('build', ['templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
+gulp.task('build', ['data', 'templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
 
 gulp.task('things-that-dont-need-to-be-watched', () => {
   return gulp.src('src/img/**/*', {base: 'src'}).pipe(gulp.dest('dist'));
 });
 
 gulp.task('default', ['serve', 'build', 'watch']);
+
+gulp.task('data', () => {
+  return request('https://www.diverseui.com/images')
+    .pipe(fs.createWriteStream('./diverseui.json'));
+});
 
 gulp.task('serve', () => {
   return connect.server({
@@ -32,8 +40,9 @@ gulp.task('templates:watch', () => {
   return gulp.watch('src/*.html', ['templates'])
 });
 
-gulp.task('templates', () => {
+gulp.task('templates', ['data'], () => {
   return gulp.src('src/*.html')
+    .pipe(data(() => { return {images: require('./diverseui.json')}; }))
     .pipe(nunjucks.compile())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());

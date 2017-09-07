@@ -1,16 +1,14 @@
 $(document).ready(function() {
   var PER_PAGE = 50;
-  var IMAGES = $.get('https://www.diverseui.com/images');
+  var IMAGES = _.shuffle(window.Data || []);
 
   var size = 78;
   var gender = 'neutral';
   var count = PER_PAGE;
 
   var filteredImages = function() {
-    return IMAGES.then(function(images) {
-      return _.filter(images, function(image) {
-        return gender === 'neutral' || image.gender === gender;
-      });
+    return _.filter(IMAGES, function(image) {
+      return gender === 'neutral' || image.gender === gender;
     });
   };
 
@@ -31,41 +29,37 @@ $(document).ready(function() {
     var to = options.to === undefined ? (from + PER_PAGE) : options.to;
     var append = !!options.append;
 
-    var _preserves = null;
+    var filtered = filteredImages();
+    var images = filtered.slice(from, to);
 
-    filteredImages().then(function(filtered) {
-      _preserves = filtered.length;
-      return filtered.slice(from, to);
-    }).then(function(images) {
-      return _.map(images, function(i) {
-        return ([
-          '<img ',
-            'crossOrigin="Anonymous" ',
-            'class="image" ',
-            'width="', size,
-            '" height="', size,
-            '" src="', i.url, '"',
-          ' />'
-        ].join(''));
-      });
-    }).then(function(imageNodes) {
-      if (append) {
-        $('#images').append(imageNodes.join(''));
-      } else {
-        $('#images').html(imageNodes.join(''));
-
-        $('#download-selected').addClass('disabled');
-      }
-
-      count = to;
-
-      if (count >= _preserves) {
-        count = _preserves;
-        $('#load-more-container').html('');
-      } else if ($('#load-more-container').html().trim().length === 0) {
-        $('#load-more-container').html('<button type="button" id="load-more" class="button">Load More</button>');
-      }
+    var imageNodes = _.map(images, function(i) {
+      return ([
+        '<img ',
+          'crossOrigin="Anonymous" ',
+          'class="image" ',
+          'width="', size,
+          '" height="', size,
+          '" src="', i.url, '"',
+        ' />'
+      ].join(''));
     });
+
+    if (append) {
+      $('#images').append(imageNodes.join(''));
+    } else {
+      $('#images').html(imageNodes.join(''));
+
+      $('#download-selected').addClass('disabled');
+    }
+
+    count = to;
+
+    if (count >= filtered.length) {
+      count = filtered.length;
+      $('#load-more-container').html('');
+    } else if ($('#load-more-container').html().trim().length === 0) {
+      $('#load-more-container').html('<button type="button" id="load-more" class="button">Load More</button>');
+    }
   };
 
   // start
