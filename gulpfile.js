@@ -10,7 +10,8 @@ const nunjucks = require('gulp-nunjucks');
 const data = require('gulp-data');
 const jsFiles = [
   {name: 'zipjs', dependencies: ['jszip', 'jszip-utils', 'FileSaver']},
-  {name: 'indexjs', dependencies: ['index', 'banner']}
+  {name: 'indexjs', dependencies: ['index', 'banner']},
+  {name: 'menujs', dependencies: ['menu']}
 ];
 
 gulp.task('build', ['data', 'templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
