@@ -22,7 +22,7 @@ gulp.task('things-that-dont-need-to-be-watched', () => {
 gulp.task('default', ['serve', 'build', 'watch']);
 
 gulp.task('data', () => {
-  return request('https://www.diverseui.com/images')
+  return request('https://www.diverseui.com/images?domain=')
     .pipe(fs.createWriteStream('./diverseui.json'));
 });
 

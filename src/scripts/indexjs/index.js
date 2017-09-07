@@ -4,7 +4,7 @@ $(document).ready(function() {
 
   var size = 78;
   var gender = 'neutral';
-  var count = PER_PAGE;
+  var count = 0;
 
   var filteredImages = function() {
     return _.filter(IMAGES, function(image) {
@@ -39,7 +39,7 @@ $(document).ready(function() {
           'class="image" ',
           'width="', size,
           '" height="', size,
-          '" src="', i.url, '"',
+          '" src="https://d3iw72m71ie81c.cloudfront.net/', i.url, '"',
         ' />'
       ].join(''));
     });
@@ -63,7 +63,7 @@ $(document).ready(function() {
   };
 
   // start
-  showImages({});
+  showImages({from: 0, to: 66});
 
   $('#load-more-container').on('click', '#load-more', function() {
     showImages({append: true});
