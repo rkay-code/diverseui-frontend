@@ -14,7 +14,7 @@ const jsFiles = [
   {name: 'menujs', dependencies: ['menu']}
 ];
 
-gulp.task('build', ['data', 'templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
+gulp.task('build', ['templates', 'sass', ...jsFiles.map(({name}) => name), 'things-that-dont-need-to-be-watched']);
 
 gulp.task('things-that-dont-need-to-be-watched', () => {
   return gulp.src('src/img/**/*', {base: 'src'}).pipe(gulp.dest('dist'));
