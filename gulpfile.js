@@ -45,7 +45,11 @@ gulp.task('templates:watch', () => {
 
 gulp.task('templates', ['data'], () => {
   return gulp.src('src/*.html')
-    .pipe(data(() => { return {images: require('./diverseui.json')}; }))
+    .pipe(data((file) => {
+      const images = require('./diverseui.json');
+
+      return {images, filepath: file.path};
+    }))
     .pipe(nunjucks.compile())
     .pipe(gulp.dest('dist'))
     .pipe(connect.reload());

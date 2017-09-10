@@ -47,7 +47,7 @@
   </head>
   <body class="site">
     <div class="menu">
-      <a href="/about.html">About</a>
+      <a href="/about.html" class="{{ 'current' if filepath.indexOf('about') !== -1 }}">About</a>
       <a href="https://github.com/reneepadgham/diverseui-sketch-plugin#readme">Sketch Plugin</a>
       <a href="/submit.html" class="button">Submit</a>
     </div>
@@ -58,9 +58,11 @@
           <a href="/" class="logo"><img src="img/logo.png" /></a>
         </div>
         <div class="header-section links">
-          <a href="/about.html">About</a>
+          <a href="/about.html" class="{{ 'current' if filepath.indexOf('about') !== -1 }}">About</a>
           <a href="https://github.com/reneepadgham/diverseui-sketch-plugin#readme">Sketch Plugin</a>
-          <a href="/submit.html" class="button">Submit</a>
+          {% if filepath.indexOf('submit') === -1 %}
+            <a href="/submit.html" class="button">Submit</a>
+          {% endif %}
         </div>
         <div class="header-section mobile">
           <button class="hamburger hamburger--collapse mobile-menu-button" id="menu" type="button">
