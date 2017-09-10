@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block css %}
+<link rel="stylesheet" href="styles/about-compiled.css" />
+{% endblock %}
+
+{% block content %}
+<section class="page-container">
+  <div>
+    <h1>About</h1>
+    <h4>
+      Diverse UI is a free set of user images that can be used in personal or commercial projects.
+      <br><br>
+      We built Diverse UI because who we assume our users are, and how we represent that in our visuals, affects who those users turn out to be.
+      We want those users to be diverse.
+      For more information, we wrote <a href="https://uxdesign.cc/techs-diversity-problem-isn-t-only-in-the-hiring-numbers-edf00f7b5e95" target="_blank">a blog post</a> about why we think diversity in UI mockups is important.
+    </h4>
+    <br><br>
+    <h4>
+      <b>For v2 - we're using Facebook auth which will make it easier to get more images with better demographic information.</b>
+      <br><br>
+      In the meantime, some of the v1 database will remain - which we admit isn't perfect. We avoided caricatures, but that doesn’t mean some images don’t feel a bit exaggerated, staged, or professional.
+      We didn’t have a good way to recognize or account for preferred gender representation. In fact, <a href="https://www.diverseui.com/submit">submitting your photo</a> is one of the best ways to help out.
+      You can help us make the most awesome set of real people on the internet.
+    </h4>
+  </div>
+  <div class="question">
+    <h2>How do I use Diverse UI?</h2>
+    <h4><b>There are four easy ways to use Diverse UI</b></h4>
+    <ul class="how-list">
+      <li>Download and use our <a href="https://github.com/reneepadgham/diverseui-sketch-plugin#readme">Sketch Plugin</a></li>
+      <li>Download images from the home page and insert them into your designs</li>
+      <li>Go to diverseui.com from the <a href="http://blog.invisionapp.com/craft-ui-design-plugins-for-sketch-photoshop/#craft">Invision Craft</a> plugin for Sketch</li>
+      <li>Use our <a href="https://github.com/reneepadgham/diverseui#api">API</a></li>
+    </ul>
+  </div>
+
+  <div class="question">
+    <h2>Who built this?</h2>
+    <h4>This site was created by <a href="http://reneepadgham.com" target="_blank">Renee Padgham</a> and <a href="http://yef.im" target="_blank">Yefim Vedernikoff</a>.</h4>
+  </div>
+
+  <div class="question">
+    <h2>How can I add my photo to the collection?</h2>
+    <h4>Our favorite question! Use our <a href="https://www.diverseui.com/submit">submit form</a>.</h4>
+  </div>
+
+  <div class="question">
+    <h2>What permissions do these photos have?</h2>
+    <h4>These photos have full usage rights! This means you can use them in every stage of your design process 😀 - just don't use them for <a href="/terms.html">evil purposes.</a></h4>
+  </div>
+
+  <div class="question">
+    <h2>How can I have my photo removed?</h2>
+    <h4>E-mail us at <a href="mailto:hello@diverseui.com?subject=Remove%20Photo">hello@diverseui.com</a> with the image! If you didn't submit your image it was found on Google images with the right for reuse indicated, so we also advise checking your permissions on the site on which it was posted.</h4>
+  </div>
+
+  <div class="question">
+    <h2>Why don’t you have xyz feature?</h2>
+    <h4>We wanted to get this out as quickly, in one weekend to be exact, so we went with the bare necessities. We’d love to hear your recommendations for things we should add at <a href="mailto:hello@diverseui.com?subject=Recommendation">hello@diverseui.com!</a></h4>
+  </div>
+</section>
+{% endblock %}
