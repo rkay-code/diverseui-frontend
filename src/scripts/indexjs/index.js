@@ -39,7 +39,7 @@ $(document).ready(function() {
           'class="image" ',
           'width="', size,
           '" height="', size,
-          '" src="https://diverse-ui.s3.amazonaws.com/faces/', i.url, '"',
+          '" src="https://static.diverseui.com/', i.url, '"',
         ' />'
       ].join(''));
     });
