@@ -36,7 +36,7 @@ $(document).ready(function() {
       return ([
         '<img ',
           'crossOrigin="Anonymous" ',
-          'onerror="this.parentNode.removeChild(this)"',
+          'onerror="this.parentNode.removeChild(this) && window.ga && window.ga(\'send\', \'event\', \'error\', \'load\', \'', i.url, '\')"',
           'class="image" ',
           'width="', size,
           '" height="', size,
