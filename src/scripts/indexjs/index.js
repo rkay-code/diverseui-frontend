@@ -36,6 +36,7 @@ $(document).ready(function() {
       return ([
         '<img ',
           'crossOrigin="Anonymous" ',
+          'onerror="this.parentNode.removeChild(this)"',
           'class="image" ',
           'width="', size,
           '" height="', size,
