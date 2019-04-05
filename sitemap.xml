@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://diverseui.com/</loc>
+    <lastmod>2019-04-05T00:50:57+00:00</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://diverseui.com/about</loc>
+    <lastmod>2019-04-05T00:50:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://diverseui.com/submit</loc>
+    <lastmod>2019-04-05T00:50:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://diverseui.com/terms</loc>
+    <lastmod>2019-04-05T00:50:57+00:00</lastmod>
+    <priority>0.80</priority>
+  </url>
+</urlset>
