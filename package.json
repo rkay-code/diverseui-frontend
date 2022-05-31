@@ -1,6 +1,9 @@
 {
   "name": "diverseui-frontend",
   "version": "1.0.0",
+  "scripts": {
+    "start": "gulp"
+  },
   "devDependencies": {
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.1",
