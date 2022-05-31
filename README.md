@@ -7,4 +7,4 @@ Diverse UI Frontend
 
 ## Develop
 
-* `gulp`
+* `npm start`
